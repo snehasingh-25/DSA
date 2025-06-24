@@ -1,25 +1,27 @@
-// File: ReverseLinkedList.java
+// File: LC206ReverseLinkedList.java
 
-class ListNode {
-    int val;
-    ListNode next;
+public class LC206ReverseLinkedList {
 
-    // Default constructor
-    ListNode() {}
+    // Definition for singly-linked list
+    static class ListNode {
+        int val;
+        ListNode next;
 
-    // Constructor with value
-    ListNode(int val) {
-        this.val = val;
+        // Default constructor
+        ListNode() {}
+
+        // Constructor with value
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        // Constructor with value and next node
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 
-    // Constructor with value and next node
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
-
-class Solution {
     // Function to reverse the linked list
     public ListNode reverseList(ListNode head) {
         ListNode prev = null;
@@ -34,10 +36,8 @@ class Solution {
 
         return prev; // New head
     }
-}
 
-// Optional: Test the reverseList method
-public class LC206ReverseLinkedList {
+    // Utility function to print the linked list
     public static void printList(ListNode head) {
         while (head != null) {
             System.out.print(head.val + (head.next != null ? " -> " : ""));
@@ -46,18 +46,19 @@ public class LC206ReverseLinkedList {
         System.out.println();
     }
 
+    // Example usage
     public static void main(String[] args) {
         // Creating linked list: 1 -> 2 -> 3 -> 4 -> 5
-        ListNode head = new ListNode(1, 
-                            new ListNode(2, 
-                            new ListNode(3, 
-                            new ListNode(4, 
+        ListNode head = new ListNode(1,
+                            new ListNode(2,
+                            new ListNode(3,
+                            new ListNode(4,
                             new ListNode(5)))));
 
         System.out.print("Original List: ");
         printList(head);
 
-        Solution sol = new Solution();
+        LC206ReverseLinkedList sol = new LC206ReverseLinkedList();
         ListNode reversedHead = sol.reverseList(head);
 
         System.out.print("Reversed List: ");
